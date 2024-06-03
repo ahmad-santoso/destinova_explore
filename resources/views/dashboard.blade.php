@@ -29,6 +29,29 @@
             z-index: 40;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const sidebarOverlay = document.querySelector('.sidebar-overlay');
+          const sidebar = document.querySelector('.sidebar-menu');
+          const toggleSidebarBtn = document.querySelector('.toggle-sidebar');
+    
+          document.querySelectorAll('.sidebar-dropdown-toggle').forEach(function (dropdownToggle) {
+            dropdownToggle.addEventListener('click', function () {
+              const dropdown = dropdownToggle.nextElementSibling;
+              dropdown.classList.toggle('hidden');
+              dropdownToggle.classList.toggle('active');
+            });
+          });
+    
+          sidebarOverlay.addEventListener('click', function () {
+            document.body.classList.remove('sidebar-open');
+          });
+    
+          toggleSidebarBtn.addEventListener('click', function () {
+            document.body.classList.toggle('sidebar-open');
+          });
+        });
+    </script>
 </head>
 
 <body class="bg-gray-100">
@@ -50,7 +73,7 @@
                     </a>
                 </li>
                 <li class="mb-1 group">
-                    <a href="#"
+                    <a href="{{ route('travel') }}"
                         class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white sidebar-dropdown-toggle">
                         <i class="ri-instance-line mr-3 text-lg"></i>
                         <span class="text-sm">Trip</span>

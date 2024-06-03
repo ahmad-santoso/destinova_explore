@@ -8,24 +8,101 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
-    <x-app-layout>
-        <x-slot name="header">
+    {{-- <x-app-layout> --}}
+        {{-- <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                 {{ __('Dashboard Admin') }}
             </h2>
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        </x-slot>
+        </x-slot> --}}
 
         <div class="flex">
             <!-- Sidebar -->
-            <div class="w-1/4 bg-gray-100 dark:bg-gray-900 min-h-screen p-4">
-                <!-- Profile Section -->
-                <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
-                    <div class="flex items-center space-x-4">
-                        <img class="w-16 h-16 rounded-full" src="https://via.placeholder.com/150" alt="Profile Picture">
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Admin Name</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">admin@example.com</p>
+            <div class="flex">
+                <!-- Sidebar -->
+                <div class="fixed inset-y-0 left-0 w-64 bg-gray-900 p-4 z-50 sidebar-menu -translate-x-full md:translate-x-0 flex flex-col">
+                    <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
+                        <img src="https://images.pexels.com/photos/1680175/pexels-photo-1680175.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Logo" class="w-8 h-8 rounded object-cover">
+                        <span class="text-lg font-bold text-white ml-3">Admin Account</span>
+                    </a>
+                    <ul class="mt-4 flex-1">
+                        <li class="mb-1 group active">
+                            <a href="#"
+                                class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white">
+                                <i class="ri-home-2-line mr-3 text-lg"></i>
+                                <span class="text-sm">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="mb-1 group">
+                            <a href="{{ route('travel') }}"
+                                class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white sidebar-dropdown-toggle">
+                                <i class="ri-instance-line mr-3 text-lg"></i>
+                                <span class="text-sm">Trip</span>
+                                <i
+                                    class="ri-arrow-right-s-line ml-auto transform transition-transform duration-200 group-[.active]:rotate-90"></i>
+                            </a>
+                            <ul class="pl-7 mt-2 hidden group-[.active]:block">
+                                <li class="mb-4">
+                                    <a href="#"
+                                        class="text-gray-300 text-sm flex items-center hover:text-gray-100">Travel</a>
+                                </li>
+                                <li class="mb-4">
+                                    <a href="#"
+                                        class="text-gray-300 text-sm flex items-center hover:text-gray-100">Rooms</a>
+                                </li>
+                                <li class="mb-4">
+                                    <a href="#"
+                                        class="text-gray-300 text-sm flex items-center hover:text-gray-100">Transport</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="mb-1 group">
+                            <a href="#"
+                                class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white sidebar-dropdown-toggle">
+                                <i class="ri-flashlight-line mr-3 text-lg"></i>
+                                <span class="text-sm">History</span>
+                                <i
+                                    class="ri-arrow-right-s-line ml-auto transform transition-transform duration-200 group-[.active]:rotate-90"></i>
+                            </a>
+                            <ul class="pl-7 mt-2 hidden group-[.active]:block">
+                                <li class="mb-4">
+                                    <a href="#" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Manage
+                                        History</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="mb-1 group">
+                            <a href="{{ route('profile.edit') }}"
+                                class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white">
+                                <i class="ri-settings-2-line mr-3 text-lg"></i>
+                                <span class="text-sm">Settings</span>
+                            </a>
+                        </li>
+                        <li class="mt-auto">
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md">
+                                <i class="ri-logout-box-line mr-3 text-lg"></i>
+                                <span class="text-sm">Logout</span>
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                                @csrf
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            
+                <!-- Main Content -->
+                <div class="w-3/4 bg-gray-100 dark:bg-gray-900 min-h-screen p-4">
+                    <!-- Profile Section -->
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <div class="flex items-center space-x-4">
+                            <img class="w-16 h-16 rounded-full" src="https://via.placeholder.com/150" alt="Profile Picture">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Admin Name</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">admin@example.com</p>
+                            </div>
                         </div>
                     </div>
                     <!-- Navigation Links -->
@@ -82,6 +159,7 @@
                     </div>
                 </div>
             </div>
+            <!-- End Sidebar -->
 
             <!-- Main Content -->
             <div class="w-3/4 py-12 px-6">
@@ -407,6 +485,6 @@
                 }
             });
         </script>
-    </x-app-layout>
+    {{-- </x-app-layout> --}}
 </body>
 </html>
