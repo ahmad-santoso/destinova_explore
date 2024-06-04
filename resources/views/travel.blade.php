@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trip</title>
+  <title>Travel</title>
+  <link rel="icon" href="{{ asset('assets/logo.png') }}" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -111,15 +112,22 @@
             <a href="#" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Setting</a>
           </li>
           <li class="mb-4">
-            <a href="#" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Profile</a>
+            <a href="{{ route('profile.edit') }}" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Profile</a>
         </ul>
       </li>
     </ul>
     <div class="mt-4">
-      <a href="#" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md">
-        <i class="ri-logout-box-line mr-3 text-lg"></i>
-        <span class="text-sm">LogOut</span>
-      </a>
+      <li class="mt-auto">
+          <a href="{{ route('logout') }}"
+              onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+              class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md">
+              <i class="ri-logout-box-line mr-3 text-lg"></i>
+              <span class="text-sm">Logout</span>
+          </a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+              @csrf
+          </form>
+      </li>
     </div>
 </div>
 <!-- Sidebar Overlay -->
