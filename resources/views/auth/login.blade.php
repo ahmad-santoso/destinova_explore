@@ -13,6 +13,9 @@
 
 <body class="h-full bg-cover bg-center" style="background-image: url('https://www.pexels.com/photo/white-boats-on-body-of-water-2265876/')">
     <x-guest-layout>
+        <!-- logo -->
+        <img src="{{ asset('assets/logo.png') }}" alt="Destinova Explore" class="h-12 w-auto mx-auto mb-4">
+
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
