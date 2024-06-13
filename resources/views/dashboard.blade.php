@@ -55,8 +55,7 @@
     </script>
 </head>
 
-<body class="bg-gray-100">
-    <div class="flex h-screen">
+<body class="relative">
         <!-- Side Bar -->
         <div class="fixed inset-y-0 left-0 w-64 bg-gray-900 p-4 z-50 sidebar-menu -translate-x-full md:translate-x-0 flex flex-col">
             <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
@@ -82,10 +81,10 @@
                     <a href="{{ route('travel') }}" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Travel</a>
                 </li>
                 <li class="mb-4">
-                    <a href="#" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Rooms</a>
+                    <a href="{{ route('rooms') }}" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Rooms</a>
                 </li>
                 <li class="mb-4">
-                    <a href="#" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Transport</a>
+                    <a href="{{ route('transport') }}" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Transport</a>
                 </li>
                 </ul>
             </li>
@@ -109,10 +108,10 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden">
                 <li class="mb-4">
-                    <a href="#" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Setting</a>
+                    <a href="{{ route('setting') }}" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Setting</a>
                 </li>
                 <li class="mb-4">
-                    <a href="{{ route('profile.edit') }}" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Profile</>
+                    <a href="{{ route('userprofile') }}" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Profile</>
                 </li>
                 </ul>
             </li>
@@ -134,7 +133,8 @@
         <!-- Sidebar Overlay -->
         <div class="sidebar-overlay fixed inset-0 z-40 bg-black opacity-50 hidden md:hidden"></div>
         <!-- End Side Bar -->
-
+        
+        <!-- Main Section -->
         <div class="flex-1 ml-64 p-6">
             <h2 class="text-2xl font-semibold mb-4 ml-3">Dashboard Client</h2>
             <div class="p-4">
@@ -287,11 +287,57 @@
                 </div>
                 <!-- End Bottom Section -->
             </div>
+        
+
+            <!-- One Section Update In Bottom --> 
+            <div class="flex-1 bg-white p-4 rounded-lg shadow mb-4 mt-10 lg:mb-0 lg:col-span-2"> 
+                <h2 class="text-xl font-semibold mb-4">Explore Trips</h2> 
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"> 
+                    @foreach ($products as $product) 
+                    <article class="overflow-hidden rounded-lg shadow transition hover:shadow-lg bg-white p-4 sm:p-6"> 
+                        <img alt="{{ $product->title }}" src="{{ url('images/'.$product->image) }}" class="h-56 w-full object-cover" /> 
+                        <div class="mt-2"> 
+                            <dl> 
+                                <div> 
+                                    <dt class="sr-only">Price</dt> 
+                                    <dd class="text-sm text-gray-500">${{ $product->price }}</dd> 
+                                </div> 
+                                <div> 
+                                    <dt class="sr-only">Title</dt> 
+                                    <dd class="font-medium">{{ $product->title }}</dd> 
+                                </div> 
+                            </dl> 
+                            <div class="mt-6 flex items-center gap-8 text-xs justify-start"> 
+                                <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2"> 
+                                    <i class="fas fa-car size-4 text-indigo-700"></i> 
+                                    <div class="mt-1.5 sm:mt-0"> 
+                                        <p class="text-gray-500">Parking</p> 
+                                        <p class="font-medium">2 spaces</p> 
+                                    </div> 
+                                </div> 
+                                <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2"> 
+                                    <i class="fas fa-shower size-4 text-indigo-700"></i> 
+                                    <div class="mt-1.5 sm:mt-0"> 
+                                        <p class="text-gray-500">Bathroom</p> 
+                                        <p class="font-medium">2 rooms</p> 
+                                    </div> 
+                                </div> 
+                                <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2"> 
+                                    <i class="fas fa-bed size-4 text-indigo-700"></i> 
+                                    <div class="mt-1.5 sm:mt-0"> 
+                                        <p class="text-gray-500">Bedroom</p> 
+                                        <p class="font-medium">4 rooms</p> 
+                                    </div> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </article> 
+                    @endforeach 
+                </div> 
+            </div>
+
         </div>
     </div>
-
-    <!-- Sidebar Overlay -->
-    <div class="fixed inset-0 bg-black opacity-50 z-40 sidebar-overlay hidden md:hidden"></div>
 
     <!-- Scripts -->
     <script>

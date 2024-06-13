@@ -9,7 +9,9 @@
         "cartalyst/stripe-laravel": "^16.0",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",
-        "stripe/stripe-php": "^14.9"
+        "stripe/stripe-php": "^14.9",
+        "xendit/xendit-php": "^5.0",
+        "yajra/laravel-datatables-oracle": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -64,6 +66,12 @@
             "php-http/discovery": true
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/xendit/xendit-php.git"
+        }
+    ],
     "minimum-stability": "stable",
     "prefer-stable": true
 }

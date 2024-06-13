@@ -59,64 +59,65 @@
 <body class="relative">
 <!-- Side Bar -->
 <div class="fixed inset-y-0 left-0 w-64 bg-gray-900 p-4 z-50 sidebar-menu -translate-x-full md:translate-x-0 flex flex-col">
-    <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
-        <img src="https://images.pexels.com/photos/1680175/pexels-photo-1680175.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt="Logo" class="w-8 h-8 rounded object-cover">
-        <span class="text-lg font-bold text-white ml-3">Client Account</span>
-    </a>
-    <ul class="mt-4 flex-1">
-      <li class="mb-1 group">
-        <a href="{{ route('dashboard') }}" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md">
-          <i class="ri-home-2-line mr-3 text-lg"></i>
-          <span class="text-sm">Dashboard</span>
-        </a>
+  <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
+      <img src="https://images.pexels.com/photos/1680175/pexels-photo-1680175.jpeg?auto=compress&cs=tinysrgb&w=600"
+          alt="Logo" class="w-8 h-8 rounded object-cover">
+      <span class="text-lg font-bold text-white ml-3">Client Account</span>
+  </a>
+  <ul class="mt-4 flex-1">
+  <li class="mb-1 group">
+      <a href="{{ route('dashboard') }}" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md">
+      <i class="ri-home-2-line mr-3 text-lg"></i>
+      <span class="text-sm">Dashboard</span>
+      </a>
+  </li>
+  <li class="mb-1 group">
+      <a href="#" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md sidebar-dropdown-toggle">
+      <i class="ri-instance-line mr-3 text-lg"></i>
+      <span class="text-sm">Trip</span>
+      <i class="ri-arrow-right-s-line ml-auto transform transition-transform duration-200"></i>
+      </a>
+      <ul class="pl-7 mt-2 hidden">
+      <li class="mb-4">
+          <a href="{{ route('travel') }}" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Travel</a>
       </li>
-      <li class="mb-1 group">
-        <a href="#" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md sidebar-dropdown-toggle">
-          <i class="ri-instance-line mr-3 text-lg"></i>
-          <span class="text-sm">Trip</span>
-          <i class="ri-arrow-right-s-line ml-auto transform transition-transform duration-200"></i>
-        </a>
-        <ul class="pl-7 mt-2 hidden">
-          <li class="mb-4">
-            <a href="{{ route('travel') }}" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Travel</a>
-          </li>
-          <li class="mb-4">
-            <a href="#" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Rooms</a>
-          </li>
-          <li class="mb-4">
-            <a href="#" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Transport</a>
-          </li>
-        </ul>
+      <li class="mb-4">
+          <a href="{{ route('rooms') }}" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Rooms</a>
       </li>
-      <li class="mb-1 group">
-        <a href="#" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md sidebar-dropdown-toggle">
-          <i class="ri-flashlight-line mr-3 text-lg"></i>
-          <span class="text-sm">History</span>
-          <i class="ri-arrow-right-s-line ml-auto transform transition-transform duration-200"></i>
-        </a>
-        <ul class="pl-7 mt-2 hidden">
-          <li class="mb-4">
-            <a href="#" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Manage History</a>
-          </li>
-        </ul>
+      <li class="mb-4">
+          <a href="{{ route('transport') }}" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Transport</a>
       </li>
-      <li class="mb-1 group">
-        <a href="#" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md sidebar-dropdown-toggle">
-          <i class="ri-settings-2-line mr-3 text-lg"></i>
-          <span class="text-sm">Setting</span>
-          <i class="ri-arrow-right-s-line ml-auto transform transition-transform duration-200"></i>
-        </a>
-        <ul class="pl-7 mt-2 hidden">
-          <li class="mb-4">
-            <a href="#" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Setting</a>
-          </li>
-          <li class="mb-4">
-            <a href="{{ route('profile.edit') }}" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Profile</a>
-        </ul>
+      </ul>
+  </li>
+  <li class="mb-1 group">
+      <a href="#" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md sidebar-dropdown-toggle">
+      <i class="ri-flashlight-line mr-3 text-lg"></i>
+      <span class="text-sm">History</span>
+      <i class="ri-arrow-right-s-line ml-auto transform transition-transform duration-200"></i>
+      </a>
+      <ul class="pl-7 mt-2 hidden">
+      <li class="mb-4">
+          <a href="#" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Manage History</a>
       </li>
-    </ul>
-    <div class="mt-4">
+      </ul>
+  </li>
+  <li class="mb-1 group">
+      <a href="#" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md sidebar-dropdown-toggle">
+      <i class="ri-settings-2-line mr-3 text-lg"></i>
+      <span class="text-sm">Setting</span>
+      <i class="ri-arrow-right-s-line ml-auto transform transition-transform duration-200"></i>
+      </a>
+      <ul class="pl-7 mt-2 hidden">
+      <li class="mb-4">
+          <a href="{{ route('setting') }}" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Setting</a>
+      </li>
+      <li class="mb-4">
+          <a href="{{ route('userprofile') }}" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Profile</>
+      </li>
+      </ul>
+  </li>
+  </ul>
+  <div class="mt-4">
       <li class="mt-auto">
           <a href="{{ route('logout') }}"
               onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
@@ -128,7 +129,7 @@
               @csrf
           </form>
       </li>
-    </div>
+  </div>
 </div>
 <!-- Sidebar Overlay -->
 <div class="sidebar-overlay fixed inset-0 z-40 bg-black opacity-50 hidden md:hidden"></div>
@@ -142,20 +143,46 @@
     </button>
 
     <!-- Banner Section -->
-    <section class="relative bg-cover bg-center bg-no-repeat h-64 md:h-screen" style="background-image: url('{{ asset('assets/image (1).jpg') }}');">
+    <section class="relative bg-cover bg-center bg-no-repeat h-64 md:h-screen">
+      <video autoplay muted loop class="absolute inset-0 object-cover w-full h-full">
+        <source src="{{ asset('assets/banner.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+        <div class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
+          <div class="max-w-xl text-left">
+            <h1 class="text-3xl font-extrabold sm:text-5xl text-white">
+              Discover Adventures <strong class="block font-extrabold text-green-400">That Match Your Dreams</strong>
+            </h1>
+            <p class="mt-4 max-w-lg sm:text-xl/relaxed text-white">
+              Explore the world with our curated travel packages designed to meet your needs and desires. 
+            </p>
+          </div>
+    </video>
+
+      <!-- Overlay -->
       <div class="absolute inset-0 bg-black/50 lg:bg-black/30 lg:from-black/70 lg:to-black/30 lg:bg-gradient-to-r"></div>
-      <div class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
-        <div class="max-w-xl text-left">
-          <h1 class="text-3xl font-extrabold sm:text-5xl text-white">
-            Discover Adventures <strong class="block font-extrabold text-green-400">That Match Your Dreams</strong>
-          </h1>
-          <p class="mt-4 max-w-lg sm:text-xl/relaxed text-white">
-            Explore the world with our curated travel packages designed to meet your needs and desires. 
-          </p>
-        </div>
-      </div>
     </section>
     <!-- End Banner Section -->
+
+    <!-- Bagian Show dari admin -->
+    <section class="mt-8">
+      <div class="container mx-auto px-4">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Trip Destination</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              @foreach($trips as $trip)
+                  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                      <img src="/images/{{ $trip->img }}" alt="{{ $trip->judul }}" class="w-full h-48 object-cover">
+                      <div class="p-4">
+                          <h3 class="text-xl font-semibold text-gray-800">{{ $trip->judul }}</h3>
+                          <p class="text-gray-600 mt-2 overflow-hidden overflow-ellipsis max-h-24">{{ $trip->keterangan }}</p>
+                          <p class="text-gray-600 mt-2">Rp {{ number_format($trip->harga, 2) }}</p>
+                          <a href="#" class="text-green-500 hover:text-green-700 mt-4 block">Book Now</a>
+                      </div>
+                  </div>
+              @endforeach
+          </div>
+      </div>
+    </section>
+    <!-- End Bagian Show dari admin -->
 
     <!-- Our Popular Travel -->
     <section class="mt-8">
@@ -164,7 +191,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Package 1 -->
           <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="/assets/pantai.jpg" alt="Beach Getaway" class="w-full h-48 object-cover">
+            <img src="{{ asset('assets/pantai.jpg') }}" alt="Beach Getaway" class="w-full h-48 object-cover">
             <div class="p-4">
               <h3 class="text-xl font-semibold text-gray-800">Beach Getaway</h3>
               <p class="text-gray-600 mt-2">Enjoy the charm of white sandy beaches and calming blue seas. This package includes accommodation, meals, and exciting beach activities.</p>
@@ -173,7 +200,7 @@
           </div>
           <!-- Package 2 -->
           <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="/assets/montain.jpg" alt="Mountain Adventure" class="w-full h-48 object-cover">
+            <img src="{{ asset('assets/montain.jpg') }}"alt="Mountain Adventure" class="w-full h-48 object-cover">
             <div class="p-4">
               <h3 class="text-xl font-semibold text-gray-800">Mountain Adventure</h3>
               <p class="text-gray-600 mt-2">Embark on a thrilling journey through mountain trails, discover hidden waterfalls, and experience breathtaking views.</p>
@@ -182,7 +209,7 @@
           </div>
           <!-- Package 3 -->
           <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="/assets/cultural.jpg" alt="Cultural Exploration" class="w-full h-48 object-cover">
+            <img src="{{ asset('assets/cultural.jpg') }}" alt="Cultural Exploration" class="w-full h-48 object-cover">
             <div class="p-4">
               <h3 class="text-xl font-semibold text-gray-800">Cultural Exploration</h3>
               <p class="text-gray-600 mt-2">Discover the rich history and traditions of various cultures. This package includes guided tours, cultural experiences, and more.</p>
@@ -287,7 +314,7 @@
             </div>
           </section>
           <!-- end  Fitur-->
-          <div class="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-8">
+          <div class="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-8 mx-auto">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">Our Best Combo Pack</h2>
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-stretch md:grid-cols-3 md:gap-8">
               <div class="divide-y divide-gray-200 rounded-2xl border border-gray-200 shadow-sm">
@@ -305,12 +332,12 @@
                     <span class="text-sm font-medium text-gray-700">/trip</span>
                   </p>
 
-                  <a
-                    class="mt-4 block rounded border border-green-600 bg-green-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-green-600 focus:outline-none focus:ring active:text-green-500 sm:mt-6"
-                    href="#"
-                  >
-                    Book Now
-                  </a>
+                  <form action="{{ route('pay.post') }}" method="POST">
+                      @csrf
+                      <button class="mt-4 block rounded border border-green-600 bg-green-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-green-600 focus:outline-none focus:ring active:text-green-500 sm:mt-6">
+                          Book Now
+                      </button>
+                  </form>
                 </div>
 
                 <div class="p-6 sm:px-8">
@@ -360,12 +387,12 @@
                     <span class="text-sm font-medium text-gray-700">/trip</span>
                   </p>
 
-                  <a
-                    class="mt-4 block rounded border border-green-600 bg-green-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-green-600 focus:outline-none focus:ring active:text-green-500 sm:mt-6"
-                    href="#"
-                  >
-                    Book Now
-                  </a>
+                  <form action="{{ route('pay.post') }}" method="POST">
+                    @csrf
+                    <button class="mt-4 block rounded border border-green-600 bg-green-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-green-600 focus:outline-none focus:ring active:text-green-500 sm:mt-6">
+                        Book Now
+                    </button>
+                  </form>
                 </div>
 
                 <div class="p-6 sm:px-8">
@@ -415,12 +442,12 @@
                     <span class="text-sm font-medium text-gray-700">/trip</span>
                   </p>
 
-                  <a
-                    class="mt-4 block rounded border border-green-600 bg-green-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-green-600 focus:outline-none focus:ring active:text-green-500 sm:mt-6"
-                    href="#"
-                  >
-                    Book Now
-                  </a>
+                  <form action="{{ route('pay.post') }}" method="POST">
+                    @csrf
+                    <button class="mt-4 block rounded border border-green-600 bg-green-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-green-600 focus:outline-none focus:ring active:text-green-500 sm:mt-6">
+                        Book Now
+                    </button>
+                  </form>
                 </div>
 
                 <div class="p-6 sm:px-8">
@@ -559,8 +586,27 @@
           <!-- end Footer -->
     <div>
 
-    <script>
-      feather.replace()
+      <script>
+        feather.replace();
+        $(document).ready(function() {
+            $('#paymentForm').on('submit', function(event) {
+                event.preventDefault(); // Prevent the form from submitting normally
+    
+                $.ajax({
+                    url: '{{ route('pay.post') }}',
+                    method: 'POST',
+                    data: $(this).serialize(), // Serialize the form data
+                    success: function(response) {
+                        console.log('Success:', response);
+                        $('#message').text(response.message); // Display the success message
+                    },
+                    error: function(xhr) {
+                        console.error('Error:', xhr);
+                        $('#message').text('An error occurred while processing your payment.');
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>

@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin</title>
     <link rel="icon" href="{{ asset('assets/logo.png') }}" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <style>
         .sidebar-menu {
             transition: transform 0.3s ease-in-out;
@@ -55,7 +61,7 @@
         });
     </script>
 </head>
-<body class="bg-gray-100">
+<body class="relative bg-gray-100">
     {{-- <x-app-layout> --}}
         {{-- <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -73,57 +79,36 @@
                     <span class="text-lg font-bold text-white ml-3">Admin Account</span>
                 </a>
                 <ul class="mt-4 flex-1">
-                <li class="mb-1 group">
-                    <a href="{{ route('dashboard') }}" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md">
-                    <i class="ri-home-2-line mr-3 text-lg"></i>
-                    <span class="text-sm">Dashboard</span>
-                    </a>
-                </li>
-                <li class="mb-1 group">
-                    <a href="#" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md sidebar-dropdown-toggle">
-                    <i class="ri-instance-line mr-3 text-lg"></i>
-                    <span class="text-sm">Trip</span>
-                    <i class="ri-arrow-right-s-line ml-auto transform transition-transform duration-200"></i>
-                    </a>
-                    <ul class="pl-7 mt-2 hidden">
-                    <li class="mb-4">
-                        <a href="#" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Travel</a>
+                    <li class="mb-1 group">
+                        <a href="{{ route('admin.dashboard') }}" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md">
+                            <i class="ri-dashboard-line mr-3 text-lg"></i>
+                            <span class="text-sm">Dashboard</span>
+                        </a>
                     </li>
-                    <li class="mb-4">
-                        <a href="#" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Rooms</a>
+                    <li class="mb-1 group">
+                        <a href="{{ route('managekonten') }}" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md">
+                            <i class="ri-map-pin-line mr-3 text-lg"></i>
+                            <span class="text-sm">Manage Konten Trip</span>
+                        </a>
                     </li>
-                    <li class="mb-4">
-                        <a href="#" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Transport</a>
+                    <li class="mb-1 group">
+                        <a href="{{ route('kontenRooms') }}" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md">
+                            <i class="fa fa-bed mr-3 text-lg"></i>
+                            <span class="text-sm">Manage Konten Rooms</span>
+                        </a>
                     </li>
-                    </ul>
-                </li>
-                <li class="mb-1 group">
-                    <a href="#" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md sidebar-dropdown-toggle">
-                    <i class="ri-flashlight-line mr-3 text-lg"></i>
-                    <span class="text-sm">History</span>
-                    <i class="ri-arrow-right-s-line ml-auto transform transition-transform duration-200"></i>
-                    </a>
-                    <ul class="pl-7 mt-2 hidden">
-                    <li class="mb-4">
-                        <a href="#" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Manage History</a>
+                    <li class="mb-1 group">
+                        <a href="{{ route('kontentrans') }}" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md">
+                            <i class="fa fa-train mr-3 text-lg"></i>
+                            <span class="text-sm">Manage Konten Transport</span>
+                        </a>
                     </li>
-                    </ul>
-                </li>
-                <li class="mb-1 group">
-                    <a href="#" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md sidebar-dropdown-toggle">
-                    <i class="ri-settings-2-line mr-3 text-lg"></i>
-                    <span class="text-sm">Setting</span>
-                    <i class="ri-arrow-right-s-line ml-auto transform transition-transform duration-200"></i>
-                    </a>
-                    <ul class="pl-7 mt-2 hidden">
-                    <li class="mb-4">
-                        <a href="#" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Setting</a>
+                    <li class="mb-1 group">
+                        <a href="{{ route('profile.edit') }}" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md">
+                            <i class="ri-settings-2-line mr-3 text-lg"></i>
+                            <span class="text-sm">Profile</span>
+                        </a>
                     </li>
-                    <li class="mb-4">
-                        <a href="{{ route('profile.edit') }}" class="text-gray-300 text-sm flex items-center hover:text-gray-100">Profile</>
-                    </li>
-                    </ul>
-                </li>
                 </ul>
                 <div class="mt-4">
                     <li class="mt-auto">
@@ -144,8 +129,8 @@
             <!-- End Side Bar -->
 
             <!-- Main Content -->
-            <div class="flex-1 ml-64 p-6"   >
-              <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="flex-1 ml-64 p-6">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                   <!-- Dashboard Cards -->
                   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                       <!-- Card 1: Total Users -->
@@ -247,113 +232,105 @@
                     </div>
                 </div>
 
-                  <!-- Main Content Grid -->
-                  <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
-                      <!-- Left Column: Tables -->
-                      <div class="space-y-6">
-                          <!-- Bookings Table -->
-                          <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                              <div class="p-6">
-                                  <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Bookings Management</h3>
-                                  <div class="overflow-x-auto">
-                                      <table class="w-full whitespace-nowrap">
-                                          <thead>
-                                              <tr class="text-left font-bold">
-                                                  <th class="px-6 py-3">No</th>
-                                                  <th class="px-6 py-3">User</th>
-                                                  <th class="px-6 py-3">Destination</th>
-                                                  <th class="px-6 py-3">Date</th>
-                                              </tr>
-                                          </thead>
-                                          <tbody class="divide-y divide-gray-200">
-                                              <!-- Booking Data Rows -->
-                                              <tr>
-                                                  <td class="px-6 py-4">1</td>
-                                                  <td class="px-6 py-4">M. Satya Rizky Saputra</td>
-                                                  <td class="px-6 py-4">Bali</td>
-                                                  <td class="px-6 py-4">2024-05-20</td>
-                                              </tr>
-                                              <tr>
-                                                  <td class="px-6 py-4">2</td>
-                                                  <td class="px-6 py-4">Ahmad Santoso</td>
-                                                  <td class="px-6 py-4">Lombok</td>
-                                                  <td class="px-6 py-4">2024-06-22</td>
-                                              </tr>
-                                              <tr>
-                                                  <td class="px-6 py-4">3</td>
-                                                  <td class="px-6 py-4">M. Haikal Bintang</td>
-                                                  <td class="px-6 py-4">Ubud</td>
-                                                  <td class="px-6 py-4">2024-07-10</td>
-                                              </tr>
-                                          </tbody>
-                                      </table>
-                                  </div>
-                              </div>
-                          </div>
-          
-                          <!-- Destinations Management -->
-                          <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                              <div class="p-6 pb-32 mt-8">
-                                  <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Destinations Management</h3>
-                                  <div class="overflow-x-auto">
-                                      <table class="w-full whitespace-nowrap">
-                                          <thead>
-                                              <tr class="text-left font-bold">
-                                                  <th class="px-6 py-3">No</th>
-                                                  <th class="px-6 py-3">Name</th>
-                                                  <th class="px-6 py-3">Description</th>
-                                                  <th class="px-6 py-3">Actions</th>
-                                              </tr>
-                                          </thead>
-                                          <tbody class="divide-y divide-gray-200">
-                                              <!-- Destination Data Rows -->
-                                              <tr>
-                                                  <td class="px-6 py-4">1</td>
-                                                  <td class="px-6 py-4">Bali</td>
-                                                  <td class="px-6 py-4">Beautiful Island in Indonesia</td>
-                                                  <td class="px-6 py-4 pb-100">
-                                                      <button class="text-blue-600 hover:text-blue-900 mr-2">Edit</button>
-                                                      <button class="text-red-600 hover:text-red-900">Delete</button>
-                                                  </td>
-                                              </tr>
-                                              <!-- More Destination Data Rows -->
-                                          </tbody>
-                                      </table>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-          
-                      <!-- Right Column: Charts -->
-                      <div class="space-y-5">
-                          <!-- Bar Chart -->
-                          <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6">
-                              <canvas id="barChart"></canvas>
-                          </div>
-          
-                          <!-- Pie Chart -->
-                          <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6">
-                            <canvas id="lineChart"></canvas>
+                <div class="mb-10">
+                    <!-- Bookings Table -->
+                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg mt-12">
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Bookings Management</h3>
+                            <div class="overflow-x-auto">
+                                <table class="w-full whitespace-nowrap">
+                                    <thead>
+                                        <tr class="text-left font-bold">
+                                            <th class="px-6 py-3">No</th>
+                                            <th class="px-6 py-3">User</th>
+                                            <th class="px-6 py-3">Destination</th>
+                                            <th class="px-6 py-3">Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200">
+                                    <!-- Booking Data Rows -->
+                                        <tr>
+                                            <td class="px-6 py-4">1</td>
+                                            <td class="px-6 py-4">M. Satya Rizky Saputra</td>
+                                            <td class="px-6 py-4">Bali</td>
+                                            <td class="px-6 py-4">2024-05-20</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4">2</td>
+                                            <td class="px-6 py-4">Ahmad Santoso</td>
+                                            <td class="px-6 py-4">Lombok</td>
+                                            <td class="px-6 py-4">2024-06-22</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4">3</td>
+                                            <td class="px-6 py-4">M. Haikal Bintang</td>
+                                            <td class="px-6 py-4">Ubud</td>
+                                            <td class="px-6 py-4">2024-07-10</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                      </div>
-                  </div>
-          
-                  <!-- Single Chart Section Below -->
-                  <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 flex justify-center items-center">
-                      <canvas id="analyticsChart" width="400" height="200"></canvas>
-                  </div>
-                  
-
-                      <div class="bg-white dark:bg-gray-800  overflow-hidden shadow-sm sm:rounded-lg p-6">
-                        <canvas id="pieChart"></canvas>
                     </div>
-                  </div>
-
-                  
-              </div>
-          </div>
+                </div>
+                
+                <div class="mb-10">
+                    <!-- Destinations Management -->
+                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="p-6 pb-32 mt-8">
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Destinations Management</h3>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full whitespace-nowrap">
+                                        <thead>
+                                            <tr class="text-left font-bold">
+                                                <th class="px-6 py-3">No</th>
+                                                <th class="px-6 py-3">Name</th>
+                                                <th class="px-6 py-3">Description</th>
+                                                <th class="px-6 py-3">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-200">
+                                        <!-- Destination Data Rows -->
+                                        <tr>
+                                            <td class="px-6 py-4">1</td>
+                                            <td class="px-6 py-4">Bali</td>
+                                            <td class="px-6 py-4">Beautiful Island in Indonesia</td>
+                                            <td class="px-6 py-4 pb-100">
+                                                <button class="text-blue-600 hover:text-blue-900 mr-2">Edit</button>
+                                                <button class="text-red-600 hover:text-red-900">Delete</button>
+                                            </td>
+                                        </tr>
+                                        <!-- More Destination Data Rows -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
           
+                <div class="mb-10">
+                    <!-- Bar Chart -->
+                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                </div>
+          
+                <div class="mb-10">
+                    <!-- Pie Chart -->
+                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6">
+                        <canvas id="lineChart"></canvas>
+                    </div>
+                </div>
+          
+                <!-- Single Chart Section Below -->
+                <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 flex justify-center items-center">
+                    <canvas id="analyticsChart" width="400" height="200"></canvas>
+                </div>
+                  
+                <div class="bg-white dark:bg-gray-800  overflow-hidden shadow-sm sm:rounded-lg p-6">
+                    <canvas id="pieChart"></canvas>
+                </div>
             </div>
         </div>
 
