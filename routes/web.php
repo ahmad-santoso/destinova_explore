@@ -98,9 +98,14 @@ Route::get('/travel', [TripController::class, 'ketravel'])->name('travel');
 // Route::get('/pay', [PaymentController::class, 'pay'])->name('pay');
 // Route::post('/pay', [PaymentController::class, 'processPayment'])->name('pay.post');
 Route::post('/pay', [PaymentController::class, 'pay'])->name('pay.post');
-Route::post('/payment/callback', [PaymentController::class, 'callback'])->name('payment.callback');
+Route::post('/payment/processPayment', [PaymentController::class, 'processPayment'])->name('pay.processPayment');
+// Route::post('/payment/callback', [PaymentController::class, 'callback'])->name('payment.callback');
 Route::get('/payment/success', [PaymentController::class, 'success'])->name('payment.success');
 Route::get('/payment/failure', [PaymentController::class, 'failure'])->name('payment.failure');
+// Route::post('/pay', [PaymentController::class, 'pay'])->name('pay.post');
+// Route::post('/pay', [PaymentController::class, 'processPayment'])->name('pay.post');
+// Route::get('/payment/success', [PaymentController::class, 'success'])->name('payment.success');
+// Route::get('/payment/failure', [PaymentController::class, 'failure'])->name('payment.failure');
 
 Route::get('/trips', [TripController::class, 'index'])->name('trips.index'); 
 Route::post('/trips/store', [TripController::class, 'store'])->name('trips.store'); 
