@@ -93,16 +93,20 @@
         $(document).ready(function() {
             $('#paymentForm').on('submit', function(event) {
                 event.preventDefault(); // Prevent form from submitting normally
-    
+
                 $.ajax({
-                    url: '{{ route('pay.post') }}',
+                    url: '{{ route('pay.processPayment') }}',
                     method: 'POST',
                     data: $(this).serialize(), // Serialize form data
                     success: function(response) {
                         // Handle success response from server
                         console.log('Success:', response);
-                        $('#message').removeClass('error').addClass('success').text('Payment successful. Redirecting to confirmation...').show();
-                        window.location.href = '{{ route('payment.success') }}'; // Redirect to payment success route
+                        if (response.redirect_url) {
+                            $('#message').removeClass('error').addClass('success').text('Payment successful. Redirecting to payment page...').show();
+                            window.location.href = response.redirect_url; // Redirect to Xendit payment URL
+                        } else {
+                            $('#message').removeClass('success').addClass('error').text('Payment processed, but no redirect URL received.').show();
+                        }
                     },
                     error: function(xhr) {
                         // Handle error response
@@ -113,6 +117,5 @@
             });
         });
     </script>
-    
 </body>
 </html>

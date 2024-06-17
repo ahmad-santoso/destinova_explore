@@ -4,42 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class PaymentController extends Controller
 {
-    // Method to handle GET requests
     public function pay()
     {
-        // Logic for displaying the payment form or page
-        return view('pay'); // Ensure you have a 'pay.blade.php' file in your 'resources/views' directory
+        // Display the payment form or page
+        return view('pay');
     }
 
-    // Method to handle POST requests
     public function processPayment(Request $request)
-    {
-        
-
-    }
-
-    public function success()
 {
-    // Example payment amount and description
-    $payment = (object) [
-        'amount' => 100,
-        'description' => 'Example payment description'
-    ];
-
-    $xendit_url = 'https://api.xendit.co/v2/invoices';
+    $amount = $request->input('amount');
+    $description = $request->input('description');
     $timestamp = now()->timestamp; // For generating a unique external_id
 
-    // Example data, replace with actual data from $request if needed
+    // Data for Xendit payment
     $paymentData = [
-        'external_id' => 'test-invoice-success-' . $timestamp,
-        'amount' => 100,
-        'description' => 'Invoice Demo #123',
-        'invoice_duration' => 100,
-        'success_redirect_url' => 'http://destinova_explore.test/payment/success',
-        'failure_redirect_url' => 'http://destinova_explore.test/payment/',
+        'external_id' => 'test-invoice-' . $timestamp,
+        'amount' => $amount,
+        'description' => $description,
+        'invoice_duration' => 86400, // 1 day in seconds
+        'success_redirect_url' => route('payment.success'),
+        'failure_redirect_url' => route('payment.failure'),
         'currency' => 'IDR',
         'fees' => [
             [
@@ -50,35 +38,44 @@ class PaymentController extends Controller
     ];
 
     // Make the request to Xendit API
-    $response = Http::withBasicAuth('xnd_development_lBofOPTleZp94MmopdQoAAX5NijzqzzRBz6h2Aqqnwc7fbooEa0cYskkOUI', '')
-                    ->post($xendit_url, $paymentData);
+    $response = Http::withBasicAuth(env('XENDIT_API_KEY', ''), '') // Ensure to provide a default value if env() fails
+                    ->post('https://api.xendit.co/v2/invoices', $paymentData);
 
     // Check if the request was successful
     if ($response->successful()) {
-        // Decode the response to an array
         $responseData = $response->json();
-
-        // Get the invoice_url from the response data
         $invoiceUrl = $responseData['invoice_url'] ?? null;
 
-        // Redirect to the invoice URL if available
         if ($invoiceUrl) {
-                return redirect()->away($invoiceUrl);
-            } else {
-                return response()->json([
-                    'message' => 'Payment processed successfully, but invoice URL is missing',
-                    'data' => $responseData
-                ]);
-            }
+            return response()->json(['redirect_url' => $invoiceUrl]);
+        } else {
+            return response()->json([
+                'message' => 'Payment processed successfully, but invoice URL is missing',
+                'data' => $responseData
+            ]);
+        }
     } else {
+        // Log error details for debugging
+        $errorResponse = $response->json();
+        Log::error('Xendit Payment Error: ', $errorResponse);
+
         return response()->json([
             'message' => 'Payment processing failed',
-            'error' => $response->json()
+            'error' => $errorResponse
         ], 500);
     }
-
-    // Render the confirmation view
-    return view('confirmationpay', compact('payment'));
 }
 
+
+    public function success()
+    {
+        // Redirect to travel page after successful payment
+        return redirect()->route('travel');
+    }
+
+    public function failure()
+    {
+        // Handle failure scenario
+        return view('failure'); // Create a failure.blade.php view to show failure message
+    }
 }
