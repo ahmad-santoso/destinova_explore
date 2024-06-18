@@ -2,6 +2,6 @@
 // File: api/assets.php
 $queries = array();
 parse_str($_SERVER['QUERY_STRING'], $queries);
-$file = $queries['file'];
+$assets = $queries['assets'];
 
-echo require __DIR__ . '/../' . $file;
+echo require __DIR__ . '/../' . $assets;
