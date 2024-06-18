@@ -60,7 +60,7 @@
     <!-- Side Bar -->
     <div class="fixed inset-y-0 left-0 w-64 bg-gray-900 p-4 z-50 sidebar-menu -translate-x-full md:translate-x-0 flex flex-col">
         <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
-            <img src="https://images.pexels.com/photos/1680175/pexels-photo-1680175.jpeg?auto=compress&cs=tinysrgb&w=600"
+            <img src="https://images.pexels.com/photos/715546/pexels-photo-715546.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt="Logo" class="w-8 h-8 rounded object-cover">
             <span class="text-lg font-bold text-white ml-3">Admin Account</span>
         </a>
