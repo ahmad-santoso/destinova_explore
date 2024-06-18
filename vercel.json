@@ -1,9 +1,4 @@
 {
-  "vercel": [
-    "@php -v",
-    "npm -v",
-    "npm install && npm run prod"
-  ],
   "version": 2,
     "framework": null,
   "functions": {
