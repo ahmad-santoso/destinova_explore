@@ -11,6 +11,7 @@ $file_path = __DIR__ . '/../' . $file;
 if (file_exists($file_path)) {
     $mime_type = mime_content_type($file_path);
     header('Content-Type: ' . $mime_type);
+    header('Content-Length: ' . filesize($file_path));
     readfile($file_path);
 } else {
     http_response_code(404);
