@@ -28,11 +28,12 @@
     "CACHE_DRIVER": "array",
     "LOG_CHANNEL": "stderr",
     "SESSION_DRIVER": "cookie",
-    "DB_CONNECTION": "mysql",
-    "DB_HOST": "127.0.0.1",
-    "DB_PORT": "3306",
+    "DB_CONNECTION": "pgsql",
+    "DB_HOST": "ep-wandering-boat-a1xc3j68.ap-southeast-1.aws.neon.tech",
+    "DB_PORT": "5432",
     "DB_DATABASE": "destinova_explore",
-    "DB_USERNAME": "root",
-    "DB_PASSWORD": ""
+    "DB_USERNAME": "destinova_explore_owner",
+    "DB_PASSWORD": "47jXifDLZeCT",
+    "DB_SSLMODE": "require"
   }
 }
