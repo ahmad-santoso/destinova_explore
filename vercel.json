@@ -1,8 +1,9 @@
 {
   "version": 2,
   "functions": {
-    "api/assets.php": { "runtime": "vercel-php@0.6.0" },
-    "api/index.php": { "runtime": "vercel-php@0.6.0" }
+    "api/index.php": {
+      "runtime": "vercel-php@0.6.0"
+    }
   },
   "routes": [
     {
@@ -12,17 +13,9 @@
   ],
   "env": {
     "APP_ENV": "production",
-    "APP_DEBUG": "true",
+    "APP_DEBUG": "false",
     "APP_URL": "https://destinova-explore.vercel.app",
-    "APP_CONFIG_CACHE": "/tmp/config.php",
-    "APP_EVENTS_CACHE": "/tmp/events.php",
-    "APP_PACKAGES_CACHE": "/tmp/packages.php",
-    "APP_ROUTES_CACHE": "/tmp/routes.php",
-    "APP_SERVICES_CACHE": "/tmp/services.php",
-    "VIEW_COMPILED_PATH": "/tmp",
-    "CACHE_DRIVER": "array",
-    "LOG_CHANNEL": "stderr",
-    "SESSION_DRIVER": "cookie",
+    "APP_KEY": "base64:lNIMK8DhkAlRjUlM6NgDi6g1ytAclXG+Ze6tq+N+7JI=",
     "DB_CONNECTION": "pgsql",
     "DB_HOST": "ep-wandering-boat-a1xc3j68.ap-southeast-1.aws.neon.tech",
     "DB_PORT": "5432",
