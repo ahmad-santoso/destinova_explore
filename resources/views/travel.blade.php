@@ -175,7 +175,12 @@
                           <h3 class="text-xl font-semibold text-gray-800">{{ $trip->judul }}</h3>
                           <p class="text-gray-600 mt-2 overflow-hidden overflow-ellipsis max-h-24">{{ $trip->keterangan }}</p>
                           <p class="text-gray-600 mt-2">Rp {{ number_format($trip->harga, 2) }}</p>
-                          <a href="#" class="text-green-500 hover:text-green-700 mt-4 block">Book Now</a>
+                          <form action="{{ route('pay.post') }}" method="POST">
+                            @csrf
+                            <button class="mt-4 block rounded border border-green-600 bg-green-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-green-600 focus:outline-none focus:ring active:text-green-500 sm:mt-6">
+                                Book Now
+                            </button>
+                        </form>
                       </div>
                   </div>
               @endforeach
